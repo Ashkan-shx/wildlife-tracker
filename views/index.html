@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Sighting Tracker | Assignment 1</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1>Ashkan Sharifi</h1>
+        <p>Wildlife Sighting Tracker</p>
+    </header>
+
+    <main>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <div class="profile-container">
+                <img src="Subject.png" alt="Ashkan Sharifi" id="profile-pic">
+                <div class="bio">
+                    <p>I am currently a student in the <strong>Computer Programming(CPP)</strong> program at Seneca Polytechnic.</p>
+                    <p><strong>Interests & Hobbies:</strong> Outside of coding, I am passionate about fitness and hitting the gym, playing soccer, and staying updated on the political situation in Iran. I am also an avid reader of self-improvement books like <em>Atomic Habits</em>.</p>
+                    <p><strong>Career Goals:</strong> I am working toward becoming an <strong>AI Engineer</strong>. I love web development because it allows me to build functional tools that solve real-world problems through data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-description">
+            <h2>Project Description</h2>
+            <p>The <strong>Wildlife Sighting Tracker</strong> is a specialized Express.js web application designed to manage and display wildlife observation data[cite: 22]. It provides a robust API that allows users to filter sightings by verification status, habitat, and species, making it a powerful tool for environmental monitoring.</p>
+        </section>
+
+        <section id="api-endpoints">
+            <h2>Available API Endpoints</h2>
+            <p>Click the buttons below to fetch data directly onto this page, or open the links in a new tab to see the raw JSON response.</p>
+            
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <button onclick="fetchData('/api/sightings')">Test API</button>
+                    <a href="/api/sightings" target="_blank"><code>/api/sightings</code></a>
+                    <span>- Returns all wildlife sighting records.</span>
+                </div>
+                <div class="endpoint-item">
+                    <button onclick="fetchData('/api/sightings/verified')">Test API</button>
+                    <a href="/api/sightings/verified" target="_blank"><code>/api/sightings/verified</code></a>
+                    <span>- Returns only sightings that have been verified.</span>
+                </div>
+                <div class="endpoint-item">
+                    <button onclick="fetchData('/api/sightings/species-list')">Test API</button>
+                    <a href="/api/sightings/species-list" target="_blank"><code>/api/sightings/species-list</code></a>
+                    <span>- Returns a unique list of all species names.</span>
+                </div>
+                <div class="endpoint-item">
+                    <button onclick="fetchData('/api/sightings/habitat/forest')">Test API</button>
+                    <a href="/api/sightings/habitat/forest" target="_blank"><code>/api/sightings/habitat/forest</code></a>
+                    <span>- Returns sightings specifically from the forest habitat.</span>
+                </div>
+                <div class="endpoint-item">
+                    <button onclick="fetchData('/api/sightings/recent')">Test API</button>
+                    <a href="/api/sightings/recent" target="_blank"><code>/api/sightings/recent</code></a>
+                    <span>- Returns the 3 most recent wildlife sightings.</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-display">
+            <h2>Live API Data Output</h2>
+            <pre id="json-output">Select an "Test API" button above to view the JSON data here...</pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ashkan Sharifi | WEB322 Assignment 1 | February 3, 2026</p>
+    </footer>
+
+    <script>
+        async function fetchData(url) {
+            const outputElement = document.getElementById('json-output');
+            outputElement.textContent = "Loading data...";
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                outputElement.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                outputElement.textContent = "Error fetching data: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

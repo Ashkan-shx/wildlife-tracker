@@ -1,0 +1,128 @@
+/* WEB322 Assignment 1 - Premium Nature Theme */
+:root {
+    --forest-dark: #1b3022;
+    --emerald: #2d5a27;
+    --moss: #4f772d;
+    --accent: #90be6d;
+    --snow: #f8f9fa;
+    --glass: rgba(255, 255, 255, 0.95);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; /* Professional Typography */
+    background-color: #f0f2f0;
+    background-image: linear-gradient(135deg, #e9ecef 0%, #f0f2f0 100%);
+    color: var(--forest-dark);
+    line-height: 1.6;
+}
+
+/* Header with Gradient */
+header {
+    background: linear-gradient(135deg, var(--forest-dark), var(--emerald));
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Container */
+main {
+    max-width: 900px;
+    margin: -30px auto 50px;
+    padding: 0 20px;
+}
+
+/* Card Styling */
+section {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+h2 {
+    color: var(--emerald);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* About Me Grid */
+#about-me {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#about-me img {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px; /* Modern rounded corners */
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* API Route List */
+ul {
+    list-style: none;
+}
+
+li {
+    background: rgba(144, 190, 109, 0.1);
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background: var(--forest-dark);
+    color: var(--accent);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #about-me {
+        flex-direction: column;
+        text-align: center;
+    }
+}
